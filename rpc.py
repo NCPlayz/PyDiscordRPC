@@ -25,7 +25,7 @@ class DiscordRPC:
 
     async def handshake(self):
         self.sock_reader, self.sock_writer = await asyncio.open_unix_connection(self.ipc_path, loop=self.loop)
-        self.send_data(0, {'v': 1, 'client_id': '352253827933667338'})
+        self.send_data(0, {'v': 1, 'client_id': '121678432504512512'})
         data = await self.sock_reader.read(1024)
         print(f'OP Code: {struct.unpack("i", data[:4])[0]}; Length: {struct.unpack("i", data[4:8])[0]}\nResponse:\n{json.loads(data[8:].decode("utf-8"))}\n')
 
